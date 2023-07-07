@@ -17,8 +17,8 @@ export class MovieSearchComponent {
 
   searchMovie(){
     const params = {
-      movieName: this.movieSearch,
-      movieDate: this.movieDate
+      movieName: this.movieSearch.value,
+      movieDate: this.movieDate.value
     }
     this.route.navigate(['/movies'],{queryParams: params});
   }

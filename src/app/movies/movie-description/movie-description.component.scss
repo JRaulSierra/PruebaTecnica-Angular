@@ -1,0 +1,10 @@
+.movie-card{
+    width: 500px;
+    height: fit-content;
+    img{
+        max-width: 200px;
+    }
+}
+.descrip-height{
+    height: calc(100% - (40px + 16px));
+}

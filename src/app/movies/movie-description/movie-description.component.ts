@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieService } from '../services/movie.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-movie-description',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieDescriptionComponent implements OnInit {
 
-  constructor() { }
+  id: string  = '';
+  movie:any = {};
+  constructor(
+    public service : MovieService,
+    private route: ActivatedRoute,
+  ) {
+    this.route
+        .queryParams
+        .subscribe(params => {
+            this.id = params['idMovie'];
+        });
+   }
 
   ngOnInit(): void {
+    this.service.getPostsById(this.id).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.movie = response
+      },
+      (error) => { console.log(error); });
   }
 
 }

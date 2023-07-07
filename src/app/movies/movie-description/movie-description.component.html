@@ -1,1 +1,22 @@
-<p>movie-description works!</p>
+<div class="d-flex descrip-height align-self-center mt-3 justify-content-center">
+    <mat-card class="movie-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{movie.Title}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image [src]="movie.Poster" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p>
+            {{movie.Plot}}
+          </p>
+          <h2>Reseña</h2>
+          <ul *ngFor="let rating of movie.Ratings">
+            <li>
+                <h3>{{rating.Source}}</h3>
+                <h4>{{rating.Value}}</h4>
+            </li>
+        </ul>
+        </mat-card-content>
+
+      </mat-card>
+</div>
