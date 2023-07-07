@@ -1,4 +1,4 @@
-<div class="w-100 movies-height bg-info d-flex justify-content-center align-items-center" *ngIf="!notFoundMovie">
+<div class="w-100 movies-height  d-flex justify-content-center align-items-center" *ngIf="!notFoundMovie">
     <div class="row">
       <section *ngFor="let movie of movies">
         <mat-card class="col-4 mw-100">
@@ -20,7 +20,7 @@
     </div>
 </div>
 
-<div class="w-100 movies-height bg-info d-flex justify-content-center align-items-center" *ngIf="notFoundMovie">
+<div class="w-100 movies-height d-flex justify-content-center align-items-center" *ngIf="notFoundMovie">
   <div class="alert alert-danger" role="alert">
     No se encontro ninguna pelicula!
   </div>
