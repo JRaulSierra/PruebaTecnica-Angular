@@ -1,15 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-search',
   templateUrl: './movie-search.component.html',
   styleUrls: ['./movie-search.component.scss']
 })
-export class MovieSearchComponent implements OnInit {
+export class MovieSearchComponent {
+  movieSearch = new FormControl('');
+  movieDate = new FormControl('');
+  constructor(
+    private route:  Router
+  ) { }
 
-  constructor() { }
 
-  ngOnInit(): void {
+  searchMovie(){
+    const params = {
+      movieName: this.movieSearch,
+      movieDate: this.movieDate
+    }
+    this.route.navigate(['/movies'],{queryParams: params});
   }
 
 }
